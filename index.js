@@ -1,82 +1,26 @@
-const express=require("express");
-const app=express();
-const cors=require("cors");
-const ObjectId = require("mongodb").ObjectID;
-const bodyParser=require("body-parser");
+//imports from untils/imports
+import * as untils from "./untils/imports.js";
+//#################################################################
 
-app.use(cors({
-    origin: '*'
-  }));
+//SETUP
+const app = untils.express();
+app.use(untils.cors({origin: '*'}));
+untils.dotenv.config();
+app.use(untils.bodyParser.json());
+app.use(untils.express.json());
+//#################################################################
 
-  require('dotenv').config();
-  app.use(bodyParser.json());
-app.use(express.json());
+//GET requests
+app.get(untils.menuById(), untils.GETmenuById());
+app.get(untils.AllOrders(), untils.GETAllOrders());
+app.get(untils.OrdersById(), untils.GETOrdersById())
+//#################################################################
 
-  const getClient=()=>{
-    const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = process.env.LINK;
-    return new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1  });
-  }
+//DELETE requests
+app.delete(untils.delmenuById(), untils.DELETEmenuById());
+app.delete(untils.delOrder(), untils.DELETEOrder());
+//#################################################################
 
-
-
-app.get("/menu/:id/:type",(req,res)=>{
-    const id=req.params.id;
-    const type=req.params.type;
-const client=getClient();
-    client.connect(async(err) => {
-      const collection = client.db("restaurant").collection("menu");
-      const data=await collection.find({restaurantID:id,type:type}).toArray();
-      res.send(data);
-
-        if(err)throw new Error();
-    
-      client.close();
-    });
-
-
-})
-
-app.delete("/delMenu/:id",(req,res)=>{
-    const id=ObjectId(req.params.id);
-    if(!id)return;
-
-    const client=getClient();
-    client.connect(async(err) => {
-        const collection = client.db("restaurant").collection("menu");
-        const data=await collection.deleteOne({_id:id});
-        res.send(data);
-        client.close();
-      });
-})
-
-//orders
-app.get("/order/:id",(req,res)=>{
-    const id=req.params.id;
-const client=getClient();
-    client.connect(async(err) => {
-      const collection = client.db("restaurant").collection(id);
-      const data=await collection.find().toArray();
-      res.send(data);
-
-        if(err)throw new Error();
-    
-      client.close();
-    });
-})
-
-app.delete("/delOrder/:rid/:id",(req,res)=>{
-    const id=ObjectId(req.params.id);
-    const rid= req.params.rid;
-    if(!id)return "Invalid Id!";
-
-    const client=getClient();
-    client.connect(async(err) => {
-        const collection = client.db("restaurant").collection(rid);
-        const data=await collection.deleteOne({_id:id});
-        res.send(data);
-        client.close();
-      });
-})
-
-app.listen(5500);
+//StartUP server listen at 5500
+app.listen(5500,()=>{console.log("Server is running at 5500 ports")});
+//#################################################################
