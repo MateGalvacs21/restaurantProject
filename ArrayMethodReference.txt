@@ -1,0 +1,79 @@
+const array1 = [1, 2, 3,5,4,7];
+const array2=[2,4,6,5,7,3,1];
+let arrayOver=[];
+let arrayS=[];
+if(array1.length===array2.length){
+
+for (let index = 0; index < array1.length; index++) {
+    if(array1.includes(array2[index])){
+      arrayOver.push(array1[index])
+      
+    }
+  else{
+  	console.log("-"+array1[index])
+    console.log("+"+array2[index])
+    arrayOver.push(array2[index])
+  
+  }
+    
+    
+}
+}
+else if(array1.length>array2.length){
+	
+ for (let index = 0; index < array1.length; index++) {
+    if(array2.includes(array1[index])){
+     	arrayS.push(array1[index])
+      
+      
+    }
+   else{
+   console.log("-"+array1[index])
+     	
+   
+   }
+   
+  
+}
+
+  for (let i = 0; i < array2.length; i++) {
+  	if(!arrayS.includes(array2[i])){
+    	console.log("+"+array2[i])
+    }
+  
+  }
+arrayOver=array2
+
+}
+else{
+  for (let index = 0; index < array2.length; index++) {
+    if(array1.includes(array2[index])){
+     	arrayS.push(array2[index])
+      
+      
+    }
+   else{
+   console.log("+"+array2[index])
+     	
+   
+   }
+   
+  
+}
+
+  for (let i = 0; i < array1.length; i++) {
+  	if(!arrayS.includes(array1[i])){
+    	console.log("-"+array1[i])
+    }
+  
+  
+arrayOver=array2
+	
+    
+    
+}
+
+
+
+}
+console.log(arrayOver)

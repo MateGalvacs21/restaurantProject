@@ -1,17 +1,17 @@
-import { ObjectId } from "mongodb";
 import { getClient } from "../../assets/getClient.js";
 
-export const delOrder = () => { return "/delOrder/:rid/:id" };
-export function DELETEOrder() {
+export const printDataRoute= () => { return "/printdata/:rid" }
+
+export function GETPrintData() {
     return (
         async function fun(req, res) {
-            const id = new ObjectId(req.params.id);
             const rid = req.params.rid;
+
             const client = getClient();
             client.connect(async () => {
                 try {
-                    const collection = client.db("restaurant").collection(rid+"_orders");
-                    const data = await collection.deleteOne({ _id: id });
+                    const collection = client.db("restaurant").collection(rid+"_print");
+                    const data = await collection.find().toArray();
                     res.send(data);
                 } catch (error) {
                     res.send(error)
@@ -24,5 +24,6 @@ export function DELETEOrder() {
     )
 
 }
+
 
 
