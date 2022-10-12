@@ -7,7 +7,7 @@ export function POSTPrint() {
         async function fun(req, res) {
             const rid = req.params.rid;
             const body = {
-                
+                _id:req.body.id,
                 items: req.body.items,
                 
             }
