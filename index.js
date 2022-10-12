@@ -32,7 +32,7 @@ app.delete(untils.printdeleteRoute(), untils.DELETEPrint());
 app.post(untils.menupostRounte(),untils.bodyParser.json(),untils.POSTMenu());
 app.post(untils.drinkpostRounte(),untils.bodyParser.json(),untils.POSTDrink());
 app.post(untils.orderpostRounte(),untils.bodyParser.json(),untils.POSTOrder());
-app.post(untils.orderpostRounte(),untils.bodyParser.json(),untils.POSTOrder());
+app.post(untils.printpostRounte(),untils.bodyParser.json(),untils.POSTPrint());
 app.post(untils.backuppostRounte(),untils.bodyParser.json(),untils.POSTBackUp());
 app.post(untils.registerRoute(),untils.bodyParser.json(),untils.Register());
 app.post(untils.loginRoute(),untils.bodyParser.json(),untils.Login());
