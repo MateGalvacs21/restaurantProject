@@ -33,6 +33,15 @@ app.post(untils.menupostRounte(),untils.bodyParser.json(),untils.POSTMenu());
 app.post(untils.drinkpostRounte(),untils.bodyParser.json(),untils.POSTDrink());
 app.post(untils.orderpostRounte(),untils.bodyParser.json(),untils.POSTOrder());
 app.post(untils.orderpostRounte(),untils.bodyParser.json(),untils.POSTOrder());
+app.post(untils.backuppostRounte(),untils.bodyParser.json(),untils.POSTBackUp());
+app.post(untils.registerRoute(),untils.bodyParser.json(),untils.Register());
+app.post(untils.loginRoute(),untils.bodyParser.json(),untils.Login());
+//#################################################################
+
+//PUT requets
+app.put(untils.menuputRounte(),untils.bodyParser.json(),untils.PUTMenu());
+app.put(untils.drinkputRounte(),untils.bodyParser.json(),untils.PUTDrink());
+app.put(untils.orderputRounte(),untils.bodyParser.json(),untils.PUTOrder());
 //#################################################################
 
 //StartUP server listen at 5500

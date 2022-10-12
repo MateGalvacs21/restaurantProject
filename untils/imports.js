@@ -19,11 +19,19 @@ import { menupostRounte,POSTMenu } from "../routes/posts/menu.post.js";
 import { drinkpostRounte,POSTDrink } from "../routes/posts/drink.post.js";
 import { POSTOrder,orderpostRounte } from "../routes/posts/order.post.js";
 import { printpostRounte,POSTPrint } from "../routes/posts/printData.post.js";
+import { POSTBackUp,backuppostRounte} from "../routes/posts/backup.post.js";
+import { PUTMenu,menuputRounte } from "../routes/puts/menu.put.js";
+import { PUTDrink,drinkputRounte } from "../routes/puts/drink.put.js";
+import { PUTOrder,orderputRounte } from "../routes/puts/order.put.js";
+import { Register,registerRoute } from "../routes/userRequests/user.register.js";
+import { Login,loginRoute } from "../routes/userRequests/user.login.js";
+
 export {
     cors,express,dotenv,bodyParser,getClient,GETAllOrders,GETOrdersById,GETmenuById,
     delmenuById,menuById,AllOrders,OrdersById,DELETEmenuById,delOrder,DELETEOrder,
     printDataRoute,GETPrintData,menuOne,GETmenuOne,GETAllDrink,AllDrinks,DrinkOne,
     GETDrinkOne,backupRoute,GETBackUpData,DELETEDrink,drinkdeleteRoute,printdeleteRoute,
     DELETEPrint,menupostRounte,POSTMenu,drinkpostRounte,POSTDrink,POSTOrder,orderpostRounte,
-    printpostRounte,POSTPrint 
+    printpostRounte,POSTPrint,POSTBackUp,backuppostRounte,PUTMenu,menuputRounte,orderputRounte,
+    PUTOrder,PUTDrink,drinkputRounte,Register,registerRoute,loginRoute,Login
 }
