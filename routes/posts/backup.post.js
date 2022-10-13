@@ -12,7 +12,8 @@ export function POSTBackUp() {
                 amount: req.body.amount,
                 amountofAfa27:req.body.afa27,
                 amountofAfa5:req.body.afa5,
-                date:new Date().now()
+                date:new Date().now(),
+                paymentType:req.body.paymentType
             }
             const client = getClient();
             client.connect(async () => {
